@@ -2,6 +2,7 @@ pub mod linear_example;
 
 /// A training batch is a list of tuples, first value is input and second is the desired output
 pub type TrainingBatch = Vec<(f64, f64)>;
+/// A param function is a function that depends on a second parameter besides x ( f(x,p) ).
 pub type ParamFunction = fn(f64, f64) -> f64;
 
 /// Calculates the error of a given training batch for a function that relies on one parameter
@@ -18,7 +19,7 @@ pub fn cost_derivative(f: &ParamFunction, df: &ParamFunction, batch: &TrainingBa
 		.sum()
 }
 
-/// Performs gradient descent algorithm with the given parameters, and returns the optimal value for the parameter
+/// Performs gradient descent algorithm with the given function and its derivative on the given batch, and returns the optimal value for the parameter p
 /// Returns Err if the maximum steps number is exceeded
 pub fn gradient_descent(f: &ParamFunction, df: &ParamFunction, batch: &TrainingBatch, initial_p: f64, learning_rate: f64, min_adjust: f64, max_steps: usize)
 -> Result<f64, &'static str> {
