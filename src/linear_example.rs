@@ -8,7 +8,7 @@ pub fn linear_intercept_forward(x: f64, p: f64) -> f64 {
 	x * 0.64 + p
 }
 
-pub fn linear_intercept_derivative(x: f64, p: f64) -> f64 {
+pub fn linear_intercept_derivative(_: f64, _: f64) -> f64 {
 	1.0
 }
 
@@ -18,10 +18,10 @@ The same example, but this time the intercept is fixed to 2 and we want to find 
 */
 
 pub fn linear_slope_forward(x: f64, p: f64) -> f64 {
-    p * x + 2
+    p * x + 2.0
 }
 
-pub fn linear_slope_derivative(x: f64, p: f64) -> f64 {
+pub fn linear_slope_derivative(x: f64, _: f64) -> f64 {
     x
 }
 
